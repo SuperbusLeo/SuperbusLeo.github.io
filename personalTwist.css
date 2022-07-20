@@ -1,0 +1,92 @@
+/*Just generic formatting to just throw it on a screen cleanly. could be ignored and still be clean formatting.*/
+body 
+{ 
+	padding-left: 1vw;
+	background-color: #0b0c0d;
+	color: #D4D4D4;
+	margin: 1vw;
+}
+
+label 
+{ 
+	width: 20vw; 
+	display: inline-block;
+}
+
+input[type = "text"], input[type = "number"], input[type = "date"], textarea, select 
+{
+  background-color : #525861;
+  color: #D4D4D4;
+}
+
+option 
+{
+	color: #D4D4D4;
+}
+
+.column 
+{
+	float: left;width: 50%;
+}
+
+.row:after 
+{
+	content: "";display: table;clear: both;
+}
+
+.topSection, .generalInformation, .salesInputs, .financeApproval, .KPICalc 
+{
+	background-color: #18191c;
+	padding: 10px;
+	margin: 5px;
+}
+
+.errors
+{
+	color: #FF4545;
+}
+
+.button 
+{
+	padding: 14px 40px;
+	color: #D4D4D4;
+	border-width: 0px;
+	border-radius: 7px;
+	background-color: #18191C;
+	transition: background-color 1s ease-out;
+}
+
+.button:hover 
+{
+	background-color: #02AA72;
+}
+
+/*.button {
+	padding: 14px 40px;
+	color: white;
+	border-width: 0px;
+	border-radius: 7px;
+	text-shadow:
+      0 0 1px #FFFFFF,
+      0 0 2px #FFFFFF,
+      0 0 3px #FFFFFF,
+      0 0 5px #00FFAA,
+      0 0 10px #00FFAA,
+      0 0 11px #00FFAA,
+      0 0 15px #00FFAA,
+      0 0 20px #00FFAA;
+	background-color: #18191c;
+	transition: text-shadow 1s ease-out;
+}
+
+.button:hover {
+	text-shadow:
+      0 0 1px #FFFFFF,
+      0 0 2px #FFFFFF,
+      0 0 3px #FFFFFF,
+      0 0 5px #005EFF,
+      0 0 10px #005EFF,
+      0 0 11px #005EFF,
+      0 0 15px #005EFF,
+      0 0 20px #005EFF;
+}*/
