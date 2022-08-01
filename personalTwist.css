@@ -90,3 +90,37 @@ option
       0 0 15px #005EFF,
       0 0 20px #005EFF;
 }*/
+
+@media only screen and (max-device-width: 500px) {
+	body 
+	{
+		font-size: 2rem;
+	}
+	label 
+	{ 
+		width: 15rem;
+	}
+	input[type = "text"], input[type = "number"], input[type = "date"], textarea 
+	{
+		width: 10rem;
+		height: 2rem;
+	}
+	select
+	{
+		font-size: 2rem;
+	}
+	option 
+	{
+		font-size: 1rem;
+	}
+	.button {
+		font-size: 2rem;
+		width: 24rem;
+		height: 4rem;
+	} 
+	.topSection, .generalInformation, .salesInputs, .financeApproval, .KPICalc 
+	{
+		padding: 1rem;
+		margin: 1rem;
+	}
+}

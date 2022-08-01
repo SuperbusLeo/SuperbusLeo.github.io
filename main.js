@@ -8,7 +8,7 @@ import { stateAbbList, stateList, checkList } from './Other_Data.js';
 //Probably a better way of doing this,that may also not require a function.
 function popStuff(array) 
 {
-  let pops = ['math','errorMessage','additionalContacts','temptoHireHours','taxExemption','totalWeeklyReg','otMarkup','weeklyOTHours','otCap','otOverCap','partyStaffing','partyMarkup','partyWeeklyHours','vms','unbillalbes','billBack','branchOnsite','rebate','transportation','backgroundCheck','drugScreen','ppe','uniforms','billBack2','timeclock','salesCycle','impementation','sui','wcNetRate','FINANCEApprovalPayment','creditLimit','weeklyEstRevenue','simpleGP','weightGPHour','weightGPWeek','payRateRepeat','billRate','markupRepeat','trueGPPercent','weeksToProfit','weeksToWageLimit','hoursToProfit','trueGPDollars']
+  let pops = ['requiredInfo','math','errorMessage','additionalContacts','temptoHireHours','taxExemption','totalWeeklyReg','otMarkup','weeklyOTHours','otCap','otOverCap','partyStaffing','partyMarkup','partyWeeklyHours','vms','unbillalbes','billBack','branchOnsite','rebate','transportation','backgroundCheck','drugScreen','ppe','uniforms','billBack2','timeclock','salesCycle','impementation','sui','wcNetRate','FINANCEApprovalPayment','creditLimit','weeklyEstRevenue','simpleGP','weightGPHour','weightGPWeek','payRateRepeat','billRate','markupRepeat','trueGPPercent','weeksToProfit','weeksToWageLimit','hoursToProfit','trueGPDollars']
   for (const element of pops) 
   {
     var index = array.indexOf(element);
@@ -134,7 +134,7 @@ export function runMath()
 	document.getElementById("hoursToProfit").textContent = `Hours to profit per EE: ${hoursToProfitPerEE.toFixed(2)}`
 }
 
-export function saveFile() 
+export function saveFile2() 
 {
   // Get the data from each element on the form.
   const date = document.getElementById('date');
@@ -211,6 +211,93 @@ export function saveFile()
 			'\nRollover EE: ' + rolloverEE.value +
 			'\nTurnover: ' + turnover.value +
 			'\nPayment Terms: ' + paymentTerms.value
+
+  // Convert the text to BLOB.
+  const textToBLOB = new Blob([data],{ type: 'text/plain' });
+  const sFilesalesTeam = 'formData.txt';// The file to save the data.
+  let newLink = document.createElement("a");
+  newLink.download = sFilesalesTeam;
+  if (window.webkitURL != null) 
+  {
+    newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+  } 
+  else 
+  {
+    newLink.href = window.URL.createObjectURL(textToBLOB);
+    newLink.style.display = "none";
+    document.body.appendChild(newLink);
+  }
+  newLink.click(); 
+}
+
+export function saveFile() 
+{
+  //Compile into array for checking
+  var allElements = document.getElementsByTagName("*");
+  var allIds = [];
+  for (var i = 0,n = allElements.length; i < n; ++i) 
+  {
+    var el = allElements[i];
+    if (el.id) 
+    { 
+    	allIds.push(el.id);
+    }
+  }
+  var idList = [...allIds];
+  popStuff(allIds);
+  allIds.push('markup')
+  console.log(allIds);
+  console.log(idList);
+  var doIContinue = true;
+          
+  for (const input of allIds) 
+  {
+  	var tempVal = document.getElementById(input);
+    if (!tempVal.value) 
+    {
+      document.getElementById(input).style.border = "2px solid red";
+      document.getElementById('errorMessage').textContent = "Look at the highlighted red boxes to make sure you filled in the correct information!";
+      doIContinue = false;
+    }
+    else 
+    {
+      document.getElementById(input).style.border = "1px solid black";
+      document.getElementById('errorMessage').textContent = "";
+    }
+  }
+
+  if (!doIContinue) 
+  {
+  	alert("Missing information! Cannot download Text file!")
+    return;
+  }
+  runMath()
+  //console.log(runMath());
+
+  // This variable stores all the data.
+  let data = 
+    'Position(s): ' + positions.value +
+			'\nEntity: ' + entity.value + 
+			'\nState: ' + stateSale.value +
+			'\nWC Class Code: ' + wcClassCode.value +
+			'\nPay Rate: ' + payRate.value + 
+			'\nMarkup: ' + markup.value +
+			'\nTotal Employees' + totalEmployees.value +
+			'\nRollover EE: ' + rolloverEE.value +
+			'\nTurnover: ' + turnover.value +
+			'\nPayment Terms: ' + paymentTerms.value +
+			'\n\n\t' + document.getElementById("weeklyEstRevenue").textContent +
+			'\n\t' + document.getElementById("simpleGP").textContent +
+			'\n\t' + document.getElementById("weightGPHour").textContent +
+			'\n\t' + document.getElementById("weightGPWeek").textContent +
+			'\n\t' + document.getElementById("payRateRepeat").textContent +
+			'\n\t' + document.getElementById("billRate").textContent +
+			'\n\t' + document.getElementById("markupRepeat").textContent +
+			'\n\t' + document.getElementById("trueGPPercent").textContent +
+			'\n\t' + document.getElementById("trueGPDollars").textContent +
+			'\n\t' + document.getElementById("weeksToProfit").textContent +
+			'\n\t' + document.getElementById("weeksToWageLimit").textContent +
+			'\n\t' + document.getElementById("hoursToProfit").textContent;
 
   // Convert the text to BLOB.
   const textToBLOB = new Blob([data],{ type: 'text/plain' });
