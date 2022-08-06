@@ -1,8 +1,14 @@
 //Admittedly obfuscated code that is just ridiculous,I know there is a better way to do this.
 //Coming from Python just made it easier without a dictionary to shorten the code this the next best option for raw JS.
-import { VariableParseAndCheck, DependentDeclarataion, SkipDivideByZero } from './Helper_Functions.js';
-import { stateToAbbreviation, WCClassCheck, SUIConverter, FinanceCreditDeclaration } from './Converter_Functions.js'
-import { stateAbbList, stateList, checkList } from './Other_Data.js';
+import { VariableParseAndCheck, DependentDeclarataion, SkipDivideByZero } from '../resources/Helper_Functions.js';
+import { stateToAbbreviation, WCClassCheck, SUIConverter, FinanceCreditDeclaration } from '../resources/Converter_Functions.js'
+
+var stateAbbList;
+var stateList;
+var checkList;
+fetch("./data/State_Abbreviations.json").then(res => res.json()).then(first => stateAbbList = first)
+fetch("./data/SUI_Data.json").then(res => res.json()).then(second => stateList = second)
+fetch("./data/WC_Data.json").then(res => res.json()).then(third => checkList = third)
 
 //This is a function to pop unncessary input functions,this allows for modifying others much easier and cleaner.\
 //Probably a better way of doing this,that may also not require a function.
@@ -134,102 +140,6 @@ export function runMath()
 	document.getElementById("hoursToProfit").textContent = `Hours to profit per EE: ${hoursToProfitPerEE.toFixed(2)}`
 }
 
-export function saveFile2() 
-{
-  // Get the data from each element on the form.
-  const date = document.getElementById('date');
-  const accountManager = document.getElementById('accountManager');
-  const salesTeam = document.getElementById('salesTeam');
-
-  //Compile into array for checking
-  var allElements = document.getElementsByTagName("*");
-  var allIds = [];
-  for (var i = 0,n = allElements.length; i < n; ++i) 
-  {
-    var el = allElements[i];
-    if (el.id) 
-    { 
-    	allIds.push(el.id);
-    }
-  }
-  var idList = [...allIds];
-  popStuff(allIds);
-  console.log(allIds);
-  console.log(idList);
-  var doIContinue = true;
-          
-  for (const input of allIds) 
-  {
-  	var tempVal = document.getElementById(input);
-    if (!tempVal.value) 
-    {
-      document.getElementById(input).style.border = "2px solid red";
-      document.getElementById('errorMessage').textContent = "Look at the highlighted red boxes to make sure you filled in the correct information!";
-      doIContinue = false;
-    }
-    else 
-    {
-      document.getElementById(input).style.border = "1px solid black";
-      document.getElementById('errorMessage').textContent = "";
-    }
-  }
-
-  if (!doIContinue) 
-  {
-  	alert("Missing information! Cannot download Text file!")
-    return;
-  }
-
-  //console.log(runMath());
-
-  // This variable stores all the data.
-  let data = 
-    date.value +
-      '\nAccount Manager: ' + accountManager.value +
-      '\nSales Team: ' + salesTeam.value +
-      '\nCustomer Type: ' + customerType.value +
-      '\nClient Name: ' + clientName.value +
-      '\nCompany Contact: ' + companyContact.value +
-      '\nContact Phone: ' + contactPhone.value +
-			'\nContact Email: ' + contactEmail.value +
-			'\nContact Address: ' + contactAddress.value +
-			'\nBilling Address: \n' +
-			billingAddress.value + '\n' +
-			city.value + ',' + state.value + ' ' + zipCode.value +
-			'\nAccounts Payalbe Contact: ' + accountsPayableContact.value +
-			'\nAP Contact Email: ' + apContactEmail.value +
-			'\nBilling Email: ' + billingEmail.value +
-			'\nServicing Branch: ' + servicingBranch.value +
-			'\nClient Week Ending: ' + clientWeekEnding.value +
-			'\nPosition(s): ' + positions.value +
-			'\nEntity: ' + entity.value + 
-			'\nState: ' + stateSale.value +
-			'\nWC Class Code: ' + wcClassCode.value +
-			'\nPay Rate: ' + payRate.value + 
-			'\nMarkup: ' + markup.value +
-			'\nTotal Employees' + totalEmployees.value +
-			'\nRollover EE: ' + rolloverEE.value +
-			'\nTurnover: ' + turnover.value +
-			'\nPayment Terms: ' + paymentTerms.value
-
-  // Convert the text to BLOB.
-  const textToBLOB = new Blob([data],{ type: 'text/plain' });
-  const sFilesalesTeam = 'formData.txt';// The file to save the data.
-  let newLink = document.createElement("a");
-  newLink.download = sFilesalesTeam;
-  if (window.webkitURL != null) 
-  {
-    newLink.href = window.webkitURL.createObjectURL(textToBLOB);
-  } 
-  else 
-  {
-    newLink.href = window.URL.createObjectURL(textToBLOB);
-    newLink.style.display = "none";
-    document.body.appendChild(newLink);
-  }
-  newLink.click(); 
-}
-
 export function saveFile() 
 {
   //Compile into array for checking
@@ -300,7 +210,7 @@ export function saveFile()
 			'\n\t' + document.getElementById("hoursToProfit").textContent;
 
   // Convert the text to BLOB.
-  const textToBLOB = new Blob([data],{ type: 'text/plain' });
+  /*const textToBLOB = new Blob([data],{ type: 'text/plain' });
   const sFilesalesTeam = 'formData.txt';// The file to save the data.
   let newLink = document.createElement("a");
   newLink.download = sFilesalesTeam;
@@ -314,5 +224,11 @@ export function saveFile()
     newLink.style.display = "none";
     document.body.appendChild(newLink);
   }
-  newLink.click(); 
+  newLink.click();*/
+  const { jsPDF } = window.jspdf;
+
+  const doc = new jsPDF();
+
+  doc.text(data, 10, 10);
+  doc.save("formData.pdf");
 }

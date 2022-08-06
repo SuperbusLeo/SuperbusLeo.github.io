@@ -1,7 +1,7 @@
 <!DOCTYPE html>
   <html>
     <head>
-      <link rel="stylesheet" href="index-assets/personalTwist.css">
+      <link rel="stylesheet" href="payroll-assets/personalTwist.css">
       <link rel="apple-touch-icon" sizes="180x180" href="Icons/apple-touch-icon.png">
 			<link rel="icon" type="image/png" sizes="32x32" href="Icons/favicon-32x32.png">
 			<link rel="icon" type="image/png" sizes="16x16" href="Icons/favicon-16x16.png">
@@ -10,10 +10,128 @@
     </head>
     <body>
     	<script type="module">
-    		import {runMath, saveFile} from './index-assets/main.js';
+    		import {runMath, saveFile} from './payroll-assets/main.js';
     		window.runMath = runMath;
     		window.saveFile = saveFile;
     	</script>
+      <div class="topSection">
+      	<h3>Top Section</h3>
+      	<p>
+          <label for="date">&emsp;Date: </label>
+          <input id="date" type="date">
+        </p>
+      	<p>
+          <label for="accountManager">&emsp;Account Manager: </label>
+          <input id="accountManager" type="text" placeholder="Hugo Furst">
+        </p>
+      	<p>
+          <label for="salesTeam">&emsp;Sales Team: </label>
+      	  <input id="salesTeam" type="text" placeholder="Teri Dactyl">
+      	</p>
+      	<p>
+      	  <label for="customerType">&emsp;Customer Type: </label>
+      	  <select id="customerType">
+      	  	<option value="Commercial">Commercial</option>
+      	  	<option value="Corestaff">Corestaff</option>
+      	  	<option value="NationalAccounts">National Accounts</option>
+      	  	<option value="NationalSales">National Sales</option>
+      	  	<option value="Performance">Performance</option>
+      	  	<option value="Harbor">Harbor</option>
+      	  	<option value="Flexicrew">Flexicrew</option>
+      	  	<option value="Tapfin">Tapfin</option>
+      	  </select>
+      	</p>
+      </div>
+      <div class="generalInformation">
+      	<div class="row">
+      	  <h3>General Information</h3>
+        	<div class="column">
+	        	<p>
+  	      	  <label for="clientName">&emsp;Client Name: </label>
+    	    	  <input id="clientName" type="text" placeholder="Ray O'Sun">
+      		  </p>
+      		    <p>
+      	  	    <label for="additionalContacts">&emsp;Additional Contacts: </label>
+      	    	  <textarea id="additionalContacts" type="text" placeholder="Anne Teak,Sales Rep,1112225555,email@domain.com" ></textarea>
+	      	    </p>
+		      	<p>
+  		    	  <label for="companyContact">&emsp;Company Contact: </label>
+    		  	  <input id="companyContact" type="text" placeholder="Liz Erd">
+      			</p>
+      			<p>
+	      	  	<label for="contactPhone">&emsp;Contact Phone: </label>
+	  	    	  <input id="contactPhone" type="text" maxlength="10" placeholder="123-456-7890">
+  	  	  	</p>
+    	  		<p>
+      			  <label for="contactEmail">&emsp;Contact Email: </label>
+      		  	<input id="contactEmail" type="text" placeholder="email@domain.com">
+	      		</p>
+	  	    	<p>
+  	  	  	  <label for="contactAddress">&emsp;Contact Address: </label>
+    	  		  <input id="contactAddress" type="text" maxlength="10" placeholder="1234567890">
+      			</p>
+      		</div>
+      		<div class="column">
+	      		<p>
+  	    		  <label for="billingAddress">&emsp;Billing Address: </label>
+    	  	  	<input id="billingAddress" type="text" placeholder="1234 This Street">
+	      		</p>
+	      		<p>
+  	    	  	<label for="city">&emsp;City: </label>
+    	  	  	<input id="city" type="text" placeholder="Capital">
+      			</p>
+	      		<p>
+  	    		  <label for="state">&emsp;State: </label>
+    	  	  	<input id="state" type="text" placeholder="Plasma">
+	      		</p>
+  	    		<p>
+    	  	  	<label for="zipCode">&emsp;Zip Code: </label>
+      		  	<input id="zipCode" type="text" placeholder="12345" maxlength="5">
+      			</p>
+      			<p>
+      	  		<label for="accountsPayableContact">&emsp;Accounts Payable Contact: </label>
+		      	  <input id="accountsPayableContact" type="text" placeholder="Anita Bath">
+  		    	</p>
+    		  	<p>
+      			  <label for="apContactEmail">&emsp;AP Contact Email:</label>
+      			  <input id="apContactEmail" type="text" placeholder="email@domain.com">
+	      		</p>
+	  	    	<p>
+  	  	  	  <label for="billingEmail">&emsp;Billing Email</label>
+    	  		  <input id="billingEmail" type="text" placeholder="email@domain.com">
+      			</p>
+	      		<p>
+  	    		  <label for="servicingBranch">&emsp;Servicing Branch: </label>
+    	  	  	<input id="servicingBranch" type="text" placeholder="Amsterdam">
+      			</p>
+      			<p>
+	      	  	<label for="clientWeekEnding">&emsp;Client Week Ending: </label>
+  	    	  	<select id="clientWeekEnding">
+  	    	  		<option disabled>-Select-</option>
+    	  	  		<option value="Sunday">Sunday</option>
+	      		  	<option value="Monday">Monday</option>
+  	    		  	<option value="Tuesday">Tuesday</option>
+    	  	  		<option value="Wednesday">Wednesday</option>
+      		  		<option value="Thursday">Thursday</option>
+	      		  	<option value="Friday">Friday</option>
+  	    		  	<option value="Saturday">Saturday</option>
+    	  	  	</select>
+      			</p>
+	      		<p>
+  	    	  	<label for="tempToHireHours">&emsp;Temp to Hire Time Period: </label>
+	  	    	  <input id="tempToHireHours" type="number" placeholder="720">
+  	  	  	</p>
+    	  		<p>
+      			  <label for="taxExemption">&emsp;Is the client tax exempt? </label>
+      		  	<select id="taxExemption">
+	      	  		<option value="">--Select--</option>
+  	    	  		<option value="yes">Yes</option>
+	  	    	  	<option value="no">No</option>
+  	  	  	  </select>
+    	  		</p>
+    	  	</div>
+    	  </div>
+    	</div>
       <div class="salesInputs">
       	<h3>Sales Inputs</h3>
       	<br>
@@ -296,7 +414,7 @@
       </div>
       <br>
       <p><a href = "https://forms.gle/gSAHCv1bvXeNL21t8" style="color:mediumpurple;">Submit a ticket</a></p>
-      <p><a href="PayrollSubmission.html" style="color:mediumpurple;">Ignore this link</a></p>
+      <p><a href="index.html" style="color:mediumpurple;">Calc</a></p>
       <br>
     </body>
   <html>
