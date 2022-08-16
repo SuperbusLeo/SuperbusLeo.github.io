@@ -47,27 +47,27 @@ export function FinanceCreditDeclaration(inputVal)
 	{
   	return [0, "No Credit App Needed"];
   } 
-  else if (inputval === "Net 7") 
+  else if (inputVal === "Net 7") 
   {
   	return [0.0025,"Credit App Needed"];
   } 
-  else if (inputval === "Net 14" || inputval === "Net 15" || inputval === "Net 20" || inputval === "Net 21") 
+  else if (inputVal === "Net 14" || inputVal === "Net 15" || inputVal === "Net 20" || inputVal === "Net 21") 
   {
   	return [0.005,"Credit App Needed"];
   } 
-  else if (inputval === "Net 25") 
+  else if (inputVal === "Net 25") 
   {
   	return [0.0075,"Credit App Needed"];
   } 
-  else if (inputval === "Net 30") 
+  else if (inputVal === "Net 30") 
   {
   	return [0.01,"Credit App Needed"];
   } 
-  else if (inputval === "Net 45") 
+  else if (inputVal === "Net 45") 
   {
   	return [0.0175,"Credit App Needed,CFO Approval"];
   } 
-  else if (inputval === "Net 60") 
+  else if (inputVal === "Net 60") 
   {
   	return [0.03,"Credit App Needed,CFO & CEO Approval"];
   }

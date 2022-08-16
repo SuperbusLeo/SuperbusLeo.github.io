@@ -36,7 +36,8 @@ export function runMath()
   let classCodeComplete = stateSelect + (!(document.getElementById('wcClassCode').value) ? '1111' : document.getElementById('wcClassCode').value);
   let SUI = SUIConverter(stateSelect, stateList);
 	let WC = WCClassCheck(classCodeComplete, checkList);
-	const FinanceCreditList = FinanceCreditDeclaration(paymentTerms.value)
+	const paymentTerms = document.getElementById('paymentTerms').value
+	const FinanceCreditList = FinanceCreditDeclaration(paymentTerms)
   var FINANCE = FinanceCreditList[0];
   var creditStatement = FinanceCreditList[1];
   let markUpVar = VariableParseAndCheck(document.getElementById('markup').value);
@@ -121,7 +122,7 @@ export function runMath()
   //This will handle the Finance approval section.
   document.getElementById('sui').textContent = "SUI: " + classCodeComplete;
   document.getElementById('wcNetRate').textContent = "WC Net Rates: " ;
- 	document.getElementById('FINANCEApprovalPayment').textContent = "Payment Terms: " + paymentTerms.value + '-' + creditStatement;
+ 	document.getElementById('FINANCEApprovalPayment').textContent = "Payment Terms: " + FINANCE + '-' + creditStatement;
   //document.getElementById('creditLimit').textContent = "Credit Limit Needed: " + result; //This is something that was only there for viewing, it was removed as it was deemed pointless for scaling.
 
 
