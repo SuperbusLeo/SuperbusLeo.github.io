@@ -61,6 +61,24 @@ option
 	background-color: #02AA72;
 }
 
+::-webkit-scrollbar-track
+{
+	border: 5px solid #0b0c0d;
+	background-color: #b2bec3;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #0b0c0d;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #74b9ff;
+	border-radius: 10px;
+}
+
 /*.button {
 	padding: 14px 40px;
 	color: white;
