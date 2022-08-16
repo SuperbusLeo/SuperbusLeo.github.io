@@ -27,58 +27,100 @@ function popStuff(array)
 //happen,but for now there will only be errors in the output and no explanation.
 export function runMath() 
 {
+	const varToString = varObj => Object.keys(varObj)[0]
+
   //First section handles direct declarations, things that are just pulled straight in.
   const RECRUIT = 5.5;
   const FICA = 0.0765;
   const FUTA = 0.006;
   const ACA = 0.015;
   let stateSelect = stateToAbbreviation(document.getElementById('stateSale').value, stateAbbList);
+  console.log(varToString({stateSelect}), stateSelect);
   let classCodeComplete = stateSelect + (!(document.getElementById('wcClassCode').value) ? '1111' : document.getElementById('wcClassCode').value);
+  console.log(varToString({classCodeComplete}), classCodeComplete);
   let SUI = SUIConverter(stateSelect, stateList);
-	let WC = WCClassCheck(classCodeComplete, checkList);
-	const paymentTerms = document.getElementById('paymentTerms').value
+  console.log(varToString({SUI}), SUI);
+  let WC = WCClassCheck(classCodeComplete, checkList);
+  console.log(varToString({WC}), WC);
+  const paymentTerms = document.getElementById('paymentTerms').value
 	const FinanceCreditList = FinanceCreditDeclaration(paymentTerms)
   var FINANCE = FinanceCreditList[0];
+  console.log(varToString({FINANCE}), FINANCE);
   var creditStatement = FinanceCreditList[1];
+  console.log(varToString({creditStatement}), creditStatement);
   let markUpVar = VariableParseAndCheck(document.getElementById('markup').value);
-	let payRateVar = VariableParseAndCheck(document.getElementById('payRate').value);
-	let employeesVar = VariableParseAndCheck(document.getElementById('totalEmployees').value);
-	let rolloverEEVar = VariableParseAndCheck(document.getElementById('rolloverEE').value);
-	let estimatedWeeklyTurnoverVar = VariableParseAndCheck(document.getElementById('turnover').value);
-	let weeklyOTHoursPaidVar = VariableParseAndCheck(document.getElementById('weeklyOTHours').value);
-	let transportationVar = VariableParseAndCheck(document.getElementById('transportation').value);
-	let unbillablesVar = VariableParseAndCheck(document.getElementById('unbillables').value);
-	let billBackVar = VariableParseAndCheck(document.getElementById('billBack').value);
-	let branchOnsiteVar = VariableParseAndCheck(document.getElementById('branchOnsite').value);
-	let rebateVar = VariableParseAndCheck(document.getElementById('rebate').value);
-	let PPEVar = VariableParseAndCheck(document.getElementById('ppe').value);
-	let uniformsVar = VariableParseAndCheck(document.getElementById('uniforms').value);
-	let billBack2Var = VariableParseAndCheck(document.getElementById('billBack2').value);
-	let timeclocksVar = VariableParseAndCheck(document.getElementById('timeclock').value);
-	let salesCycleVar = VariableParseAndCheck(document.getElementById('salesCycle').value);
-	let implementationVar = VariableParseAndCheck(document.getElementById('implementation').value);
-	let backgroundCheckVar = VariableParseAndCheck(document.getElementById('backgroundCheck').value);
-	let drugScreenVar = VariableParseAndCheck(document.getElementById('drugScreen').value);
-	let VMS = VariableParseAndCheck(document.getElementById('vms').value);
-
+	console.log(varToString({markUpVar}), markUpVar);
+  let payRateVar = VariableParseAndCheck(document.getElementById('payRate').value);
+	console.log(varToString({payRateVar}), payRateVar);
+  let employeesVar = VariableParseAndCheck(document.getElementById('totalEmployees').value);
+	console.log(varToString({employeesVar}), employeesVar);
+  let rolloverEEVar = VariableParseAndCheck(document.getElementById('rolloverEE').value);
+	console.log(varToString({rolloverEEVar}), rolloverEEVar);
+  let estimatedWeeklyTurnoverVar = VariableParseAndCheck(document.getElementById('turnover').value);
+	console.log(varToString({estimatedWeeklyTurnoverVar}), estimatedWeeklyTurnoverVar);
+  let weeklyOTHoursPaidVar = VariableParseAndCheck(document.getElementById('weeklyOTHours').value);
+	console.log(varToString({weeklyOTHoursPaidVar}), weeklyOTHoursPaidVar);
+  let transportationVar = VariableParseAndCheck(document.getElementById('transportation').value);
+	console.log(varToString({transportationVar}), transportationVar);
+  let unbillablesVar = VariableParseAndCheck(document.getElementById('unbillables').value);
+	console.log(varToString({unbillablesVar}), unbillablesVar);
+  let billBackVar = VariableParseAndCheck(document.getElementById('billBack').value);
+	console.log(varToString({billBackVar}), billBackVar);
+  let branchOnsiteVar = VariableParseAndCheck(document.getElementById('branchOnsite').value);
+	console.log(varToString({branchOnsiteVar}), branchOnsiteVar);
+  let rebateVar = VariableParseAndCheck(document.getElementById('rebate').value);
+	console.log(varToString({rebateVar}), rebateVar);
+  let PPEVar = VariableParseAndCheck(document.getElementById('ppe').value);
+	console.log(varToString({PPEVar}), PPEVar);
+  let uniformsVar = VariableParseAndCheck(document.getElementById('uniforms').value);
+	console.log(varToString({uniformsVar}), uniformsVar);
+  let billBack2Var = VariableParseAndCheck(document.getElementById('billBack2').value);
+	console.log(varToString({billBack2Var}), billBack2Var);
+  let timeclocksVar = VariableParseAndCheck(document.getElementById('timeclock').value);
+	console.log(varToString({timeclocksVar}), timeclocksVar);
+  let salesCycleVar = VariableParseAndCheck(document.getElementById('salesCycle').value);
+	console.log(varToString({salesCycleVar}), salesCycleVar);
+  let implementationVar = VariableParseAndCheck(document.getElementById('implementation').value);
+	console.log(varToString({implementationVar}), implementationVar);
+  let backgroundCheckVar = VariableParseAndCheck(document.getElementById('backgroundCheck').value);
+	console.log(varToString({backgroundCheckVar}), backgroundCheckVar);
+  let drugScreenVar = VariableParseAndCheck(document.getElementById('drugScreen').value);
+  console.log(varToString({drugScreenVar}), drugScreenVar);
+  let VMS = VariableParseAndCheck(document.getElementById('vms').value);
+	console.log(varToString({VMS}), VMS);
+  
 	//Everything here depends on something else, these shouldn't return NaN but always could, make sure to find them if they occur, they ruin everything.
 	let regWeeklyHoursVar = DependentDeclarataion(document.getElementById('totalWeeklyReg').value, employeesVar * 32);
-	let otMarkUpVar = DependentDeclarataion(document.getElementById('otMarkup').value, markUpVar);
-	let weeklyOTHoursBillVar = weeklyOTHoursPaidVar - VariableParseAndCheck(document.getElementById('otOverCap').value);
-
+	console.log(varToString({regWeeklyHoursVar}), regWeeklyHoursVar);
+  let otMarkUpVar = DependentDeclarataion(document.getElementById('otMarkup').value, markUpVar);
+	console.log(varToString({otMarkUpVar}), otMarkUpVar);
+  let weeklyOTHoursBillVar = weeklyOTHoursPaidVar - VariableParseAndCheck(document.getElementById('otOverCap').value);
+  console.log(varToString({weeklyOTHoursBillVar}), weeklyOTHoursBillVar);
+  
 	//The following are all computations from the original spread sheet. This will definitely require optimization and will be cleaned up over time.
 	let totalPerEEVar = backgroundCheckVar + drugScreenVar + PPEVar + uniformsVar + RECRUIT + billBackVar;
-	let eeStartCostVar = rolloverEEVar === 0 ? ((employeesVar - rolloverEEVar) * totalPerEEVar) : 0;
-	let totalUpfrontCostVar = timeclocksVar + salesCycleVar + implementationVar + eeStartCostVar;
-	let otPayRateVar = payRateVar * 1.5;
-	let otBillRateVar = otPayRateVar * (1 + (otMarkUpVar / 100));
-	let otBillVar = weeklyOTHoursBillVar *  otBillRateVar;
-	let billRateVar = payRateVar * (1 + (markUpVar / 100));
-	let otPay = weeklyOTHoursPaidVar * otPayRateVar;
-	let otGPPerHourVar = otBillRateVar - otPayRateVar - (otPayRateVar * FICA + otPayRateVar * FUTA + otPayRateVar * SUI + WC / otPayRateVar + otPayRateVar * ACA + otPayRateVar * VMS + otPayRateVar * FINANCE);
-	let otWeeklyMarginVar = otGPPerHourVar * weeklyOTHoursPaidVar;
-	let regGPPerHourVar = billRateVar - payRateVar - (payRateVar * FICA + payRateVar * FUTA + payRateVar * SUI + WC / payRateVar + payRateVar * ACA + payRateVar * VMS + payRateVar * FINANCE);
-	var weekly3rdPartyHoursVar = 0;
+	console.log(varToString({totalPerEEVar}), totalPerEEVar);
+  let eeStartCostVar = rolloverEEVar === 0 ? ((employeesVar - rolloverEEVar) * totalPerEEVar) : 0;
+	console.log(varToString({eeStartCostVar}), eeStartCostVar);
+  let totalUpfrontCostVar = timeclocksVar + salesCycleVar + implementationVar + eeStartCostVar;
+	console.log(varToString({totalUpfrontCostVar}), totalUpfrontCostVar);
+  let otPayRateVar = payRateVar * 1.5;
+	console.log(varToString({otPayRateVar}), otPayRateVar);
+  let otBillRateVar = otPayRateVar * (1 + (otMarkUpVar / 100));
+	console.log(varToString({otBillRateVar}), otBillRateVar);
+  let otBillVar = weeklyOTHoursBillVar *  otBillRateVar;
+	console.log(varToString({otBillVar}), otBillVar);
+  let billRateVar = payRateVar * (1 + (markUpVar / 100));
+	console.log(varToString({billRateVar}), billRateVar);
+  let otPay = weeklyOTHoursPaidVar * otPayRateVar;
+	console.log(varToString({otPay}), otPay);
+  let otGPPerHourVar = otBillRateVar - otPayRateVar - (otPayRateVar * FICA + otPayRateVar * FUTA + otPayRateVar * SUI + (otPayRateVar * (WC / 100)) + otPayRateVar * ACA + otPayRateVar * VMS + otPayRateVar * FINANCE);
+	console.log(varToString({otGPPerHourVar}), otGPPerHourVar);
+  let otWeeklyMarginVar = otGPPerHourVar * weeklyOTHoursPaidVar;
+	console.log(varToString({otWeeklyMarginVar}), otWeeklyMarginVar);
+  let regGPPerHourVar = billRateVar - payRateVar - (payRateVar * FICA + payRateVar * FUTA + payRateVar * SUI + (payRateVar * (WC / 100)) + payRateVar * ACA + payRateVar * VMS + payRateVar * FINANCE);
+  console.log(varToString({regGPPerHourVar}), regGPPerHourVar);
+  var weekly3rdPartyHoursVar = 0;
 	var partyMarkUpVar = 0;
 	var partyBillRateVar = 0;
 	var partyPayRateVar = 0;
@@ -89,21 +131,39 @@ export function runMath()
 		partyBillRateVar = billRateVar;
 		partyPayRateVar = payRateVar * (1 + markUpVar / 100)
 	}
+	console.log(varToString({weekly3rdPartyHoursVar}), weekly3rdPartyHoursVar);
+  console.log(varToString({partyMarkUpVar}), partyMarkUpVar);
+  console.log(varToString({partyBillRateVar}), partyBillRateVar);
+  console.log(varToString({partyPayRateVar}), partyPayRateVar);
 	let weeklyVendorPayVar = weekly3rdPartyHoursVar * partyPayRateVar;
-	let weeklyPartyTotalBill = weekly3rdPartyHoursVar * weekly3rdPartyHoursVar * partyPayRateVar;
-	let partyWeeklyMarginVar = weeklyPartyTotalBill - weeklyVendorPayVar;
-	let partyGPPerHour = !(partyWeeklyMarginVar / weekly3rdPartyHoursVar) ? 0 : partyWeeklyMarginVar / weekly3rdPartyHoursVar;
-	let totalWeeklyHours = regWeeklyHoursVar  + weekly3rdPartyHoursVar + weeklyOTHoursPaidVar;
-	let eeTurnoverCost = employeesVar * (estimatedWeeklyTurnoverVar / 100) * totalPerEEVar;
-	let totalPerWeek = transportationVar + unbillablesVar + billBackVar + branchOnsiteVar + rebateVar + eeTurnoverCost;
-	let weeklyEstimateRevenue = (billRateVar * regWeeklyHoursVar) + (weeklyOTHoursPaidVar * otBillRateVar) + (weekly3rdPartyHoursVar * otBillRateVar);
-	let gpWeightedPerHour = (regGPPerHourVar * regWeeklyHoursVar / totalWeeklyHours) + (partyGPPerHour * weekly3rdPartyHoursVar / totalWeeklyHours) + (otGPPerHourVar * weeklyOTHoursPaidVar / totalWeeklyHours);
-	let simpleGPNumber = 100 * SkipDivideByZero(gpWeightedPerHour / (billRateVar * SkipDivideByZero(regWeeklyHoursVar / totalWeeklyHours))) + (otBillRateVar * SkipDivideByZero(weeklyOTHoursPaidVar / totalWeeklyHours)) + (partyBillRateVar * SkipDivideByZero(weekly3rdPartyHoursVar / totalWeeklyHours));
-	let gpWeightedPerWeek = gpWeightedPerHour * totalWeeklyHours
-	let trueGrossProfitDollar = gpWeightedPerWeek - totalPerWeek;
-	let trueGrossProfitPercent = SkipDivideByZero(trueGrossProfitDollar / weeklyEstimateRevenue) * 100;
-	let weeksToProfitVar = SkipDivideByZero(totalUpfrontCostVar / trueGrossProfitDollar);
-	var extraNumber = 0;
+	console.log(varToString({weeklyVendorPayVar}), weeklyVendorPayVar);
+  let weeklyPartyTotalBill = weekly3rdPartyHoursVar * weekly3rdPartyHoursVar * partyPayRateVar;
+	console.log(varToString({weeklyPartyTotalBill}), weeklyPartyTotalBill);
+  let partyWeeklyMarginVar = weeklyPartyTotalBill - weeklyVendorPayVar;
+	console.log(varToString({partyWeeklyMarginVar}), partyWeeklyMarginVar);
+  let partyGPPerHour = !(partyWeeklyMarginVar / weekly3rdPartyHoursVar) ? 0 : partyWeeklyMarginVar / weekly3rdPartyHoursVar;
+	console.log(varToString({partyGPPerHour}), partyGPPerHour);
+  let totalWeeklyHours = regWeeklyHoursVar  + weekly3rdPartyHoursVar + weeklyOTHoursPaidVar;
+	console.log(varToString({totalWeeklyHours}), totalWeeklyHours);
+  let eeTurnoverCost = employeesVar * (estimatedWeeklyTurnoverVar / 100) * totalPerEEVar;
+	console.log(varToString({eeTurnoverCost}), eeTurnoverCost);
+  let totalPerWeek = transportationVar + unbillablesVar + billBackVar + branchOnsiteVar + rebateVar + eeTurnoverCost;
+	console.log(varToString({totalPerWeek}), totalPerWeek);
+  let weeklyEstimateRevenue = (billRateVar * regWeeklyHoursVar) + (weeklyOTHoursPaidVar * otBillRateVar) + (weekly3rdPartyHoursVar * otBillRateVar);
+	console.log(varToString({weeklyEstimateRevenue}), weeklyEstimateRevenue);
+  let gpWeightedPerHour = (regGPPerHourVar * regWeeklyHoursVar / totalWeeklyHours) + (partyGPPerHour * weekly3rdPartyHoursVar / totalWeeklyHours) + (otGPPerHourVar * weeklyOTHoursPaidVar / totalWeeklyHours);
+	console.log(varToString({gpWeightedPerHour}), gpWeightedPerHour);
+  let simpleGPNumber = 100 * SkipDivideByZero(gpWeightedPerHour / (billRateVar * SkipDivideByZero(regWeeklyHoursVar / totalWeeklyHours))) + (otBillRateVar * SkipDivideByZero(weeklyOTHoursPaidVar / totalWeeklyHours)) + (partyBillRateVar * SkipDivideByZero(weekly3rdPartyHoursVar / totalWeeklyHours));
+	console.log(varToString({simpleGPNumber}), simpleGPNumber);
+  let gpWeightedPerWeek = gpWeightedPerHour * totalWeeklyHours
+	console.log(varToString({gpWeightedPerWeek}), gpWeightedPerWeek);
+  let trueGrossProfitDollar = gpWeightedPerWeek - totalPerWeek;
+	console.log(varToString({trueGrossProfitDollar}), trueGrossProfitDollar);
+  let trueGrossProfitPercent = SkipDivideByZero(trueGrossProfitDollar / weeklyEstimateRevenue) * 100;
+	console.log(varToString({trueGrossProfitPercent}), trueGrossProfitPercent);
+  let weeksToProfitVar = SkipDivideByZero(totalUpfrontCostVar / trueGrossProfitDollar);
+	console.log(varToString({weeksToProfitVar}), weeksToProfitVar);
+  var extraNumber = 0;
 	if (stateSelect === "DC" || stateSelect === "TX") 
 	{
 		extraNumber = 9000;
@@ -116,9 +176,12 @@ export function runMath()
 	{
 		extraNumber = 7000;
 	}
+	console.log(varToString({extraNumber}), extraNumber);
 	let weeksToSUTAWageLimit = SkipDivideByZero(extraNumber / (payRateVar * 32));
-	let hoursToProfitPerEE = (trueGrossProfitPercent < 0) ? 0 : totalPerEEVar / gpWeightedPerHour;
-
+	console.log(varToString({weeksToSUTAWageLimit}), weeksToSUTAWageLimit);
+  let hoursToProfitPerEE = (trueGrossProfitPercent < 0) ? 0 : totalPerEEVar / gpWeightedPerHour;
+  console.log(varToString({hoursToProfitPerEE}), hoursToProfitPerEE);
+  
   //This will handle the Finance approval section.
   document.getElementById('sui').textContent = "SUI: " + classCodeComplete;
   document.getElementById('wcNetRate').textContent = "WC Net Rates: " ;
@@ -156,7 +219,7 @@ export function saveFile()
   }
   var idList = [...allIds];
   popStuff(allIds);
-  allIds.push('markup')
+  allIds.push('markup');
   console.log(allIds);
   console.log(idList);
   var doIContinue = true;
