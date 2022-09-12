@@ -99,157 +99,158 @@
         	  <label for="markup">&emsp;&emsp;Markup: </label>
 		        <input id="markup" type="number" step="0.01" placeholder="35.0" min="0">
 		      </p>
-		    <div>
+		    <button class="collapsible">Other Useful Data</button>
+		    <div class="content">
 		    	<br>
 		    	<h4>&emsp;Other Useful Data:</h4>
 		    	<br>
-		    <div class="row">
-      		<div class="column">
-    		    <p>
-        		  <label for="totalEmployees">&emsp;Total Employees: </label>
-		          <input id="totalEmployees" type="number" placeholder="10" min="0">
-    		    </p>
-        		<p>
-		          <label for="rolloverEE">&emsp;Rollover EE: </label>
-    		      <input id="rolloverEE" type="number" placeholder="0" min="0">
-        		</p>
-		        <p>
-    		      <label for="totalWeeklyReg">&emsp;Total Weekly Reg Hours: </label>
-        		  <input id="totalWeeklyReg" type="number" placeholder="15" min="0">
-		        </p>
-    		    <p>
-        		  <label for="turnover">&emsp;Turnover: </label>
-		          <input id="turnover" type="number" step="0.01" placeholder="25.0" min="0">
-    		    </p>
-        		<p>
-          		<label for="paymentTerms">&emsp;Payment Terms: </label>
-          		<select id="paymentTerms">
-	  	        	<option value="Net 0">Net 0</option>
-  	  	      	<option value="Net 7">Net 7</option>
-        		  	<option value="Net 14">Net 14</option>
-          			<option value="Net 15">Net 15</option>
-		          	<option value="Net 20">Net 20</option>
-    		      	<option value="Net 21">Net 21</option>
-        		  	<option value="Net 25">Net 25</option>
-          			<option value="Net 30">Net 30</option>
-		          	<option value="Net 45">Net 45</option>
-    		      	<option value="Net 60">Net 60</option>
-        		  </select>
-		        </p>
-    		    <p>
-        		  <label for="otMarkup">&emsp;OT Markup: </label>
-		          <input id="otMarkup" type="number" step="0.01" placeholder="25.0" min="0">
-    		    </p>
-        		<p>
-		          <label for="weeklyOTHours">&emsp;Weekly OT Hours: </label>
-    		      <input id="weeklyOTHours" type="number" placeholder="1" min="0">
-        		</p>
-		        <p>
-    		      <label for="otCap">&emsp;OT Cap: </label>
-        		  <input id="otCap" type="number" placeholder="40" min="0">
-		        </p>
-    		    <p>
-        		  <label for="otOverCap">&emsp;OT Hours over Cap: </label>
-		          <input id="otOverCap" type="number" placeholder="2" min="0">
-    		    </p>
-    		  </div>
-    		  <div class="column">
-        		<p>
-		          <label for="partyStaffing">&emsp;3rd Party Staffing: </label>
-    		      <select id="partyStaffing">
-		      	  	<option value="no">No</option>
-    		  	  	<option value="yes">Yes</option>
-      			  </select>
-		      	</p>
-    		  	<p>
-        		  <label for="partyMarkup">&emsp;3rd Party Mark-up: </label>
-		          <input id="partyMarkup" type="number" step="0.01" placeholder="3" min="0">
-    		  	</p>
-      			<p>
-		          <label for="partyWeeklyHours">&emsp;Weekly 3rd Party Hours: </label>
-    		      <input id="partyWeeklyHours" type="number" placeholder="6" min="0">
-      			</p>
-		      	<p>
-    		  	  <label for="vms">&emsp;VMS: </label>
-      			  <input id="vms" type="text">
-		      	</p>
-    		  	<section>
-      			  <h5>&emsp;&emsp; Weekly Costs</h5>
-		          <p>
-    		  	    <label for="transportation">&emsp;&emsp;&emsp;Transportation: </label>
-		      	    <input id="transportation" type="number" step="0.01" placeholder="14" min="0">
-    		  	  </p>
-      			  <p>
-		      	    <label for="unbillables">&emsp;&emsp;&emsp;Unbillables: </label>
-    		  	    <input id="unbillables" type="number" step="0.01" placeholder="15" min="0">
-      			  </p>
-		      	  <p>
-    		  	    <label for="billBack">&emsp;&emsp;&emsp;Bill Back: </label>
-      			    <input id="billBack" type="number" step="0.01" placeholder="16" min="0">
-		      	  </p>
-    		  	  <p>
-      			    <label for="branchOnsite">&emsp;&emsp;&emsp;Branch Onsite: </label>
-      	    		<input id="branchOnsite" type="number" step="0.01" placeholder="17" min="0">
-		      	  </p>
-    		  	  <p>
-      			    <label for="rebate">&emsp;&emsp;&emsp;Rebate: </label>
-      	    		<input id="rebate" type="number" step="0.01" placeholder="18" min="0">
-		      	  </p>
-    		  	</section>
-      			<section>
-		      	  <h5>&emsp;&emsp; Cost Per EE</h5>
-    		      <p>
-      			    <label for="backgroundCheck">&emsp;&emsp;&emsp;Background Check: </label>
-      	    		<select id="backgroundCheck">
-		      	      <option value="0">None $0</option>
-    		  	      <option value="2.90">Basic Package=$2.90</option>
-      			      <option value="8.50">Standard Package=$8.50</option>
-      	    		  <option value="13.50">Pro Package=$13.50</option>
-		      	      <option value="0">Bill Back</option>
-    		  	    </select>
-      			  </p>
-		      	  <p>
-    		  	    <label for="drugScreen">&emsp;&emsp;&emsp;Drug Screen: </label>
-      			    <select id="drugScreen">
-      	    		  <option value="0">None</option>
-		      	      <option value="3.66">5 Panel - $3.66</option>
-    		  	      <option value="5.33">10 Panel - $5.33</option>
-      			      <option value="5.64">12 Panel - $5.64</option>
-      	    		  <option value="50">Clinic - Urine - $50</option>
-		      	      <option value="25">Quest - Urine - $25</option>
-    		  	      <option value="0">Bill Back</option>
-      			    </select>
-		      	  </p>
-    		  	  <p>
-      			    <label for="ppe">&emsp;&emsp;&emsp;PPE: </label>
-		      	    <input id="ppe" type="number" step="0.01" placeholder="16" min="0">
-    		  	  </p>
-      			  <p>
-      	    		<label for="uniforms">&emsp;&emsp;&emsp;Uniforms: </label>
-		      	    <input id="uniforms" type="number" step="0.01" placeholder="17" min="0">
-    		  	  </p>
-      			  <p>
-      	    		<label for="billBack2">&emsp;&emsp;&emsp;Bill Back: </label>
-		      	    <input id="billBack2" type="number" step="0.01" placeholder="18.00" min="0">
-    		  	  </p>
-      			</section>
-		      	<section>
-    		  	  <h5>&emsp;&emsp; Upfront</h5>
-      			  <p>
-		      	    <label for="timeclock">&emsp;&emsp;&emsp;Timeclocks: </label>
-    		  	    <input id="timeclock" type="number" placeholder="16" min="0">
-      			  </p>
-		      	  <p>
-    		  	    <label for="salesCycle">&emsp;&emsp;&emsp;Sales Cycle: </label>
-      			    <input id="salesCycle" type="number" step="0.01" placeholder="17.00" min="0">
-		      	  </p>
-    		  	  <p>
-      			    <label for="implementation">&emsp;&emsp;&emsp;Implementation: </label>
-      	    		<input id="implementation" type="number" step="0.01" placeholder="18.00" min="0">
-		      	  </p>
-    		  	</section>
-    		  </div>
-    		</div>
+			    <div class="row">
+	      		<div class="column">
+	    		    <p>
+	        		  <label for="totalEmployees">&emsp;Total Employees: </label>
+			          <input id="totalEmployees" type="number" placeholder="10" min="0">
+	    		    </p>
+	        		<p>
+			          <label for="rolloverEE">&emsp;Rollover EE: </label>
+	    		      <input id="rolloverEE" type="number" placeholder="0" min="0">
+	        		</p>
+			        <p>
+	    		      <label for="totalWeeklyReg">&emsp;Total Weekly Reg Hours: </label>
+	        		  <input id="totalWeeklyReg" type="number" placeholder="15" min="0">
+			        </p>
+	    		    <p>
+	        		  <label for="turnover">&emsp;Turnover: </label>
+			          <input id="turnover" type="number" step="0.01" placeholder="25.0" min="0">
+	    		    </p>
+	        		<p>
+	          		<label for="paymentTerms">&emsp;Payment Terms: </label>
+	          		<select id="paymentTerms">
+		  	        	<option value="Net 0">Net 0</option>
+	  	  	      	<option value="Net 7">Net 7</option>
+	        		  	<option value="Net 14">Net 14</option>
+	          			<option value="Net 15">Net 15</option>
+			          	<option value="Net 20">Net 20</option>
+	    		      	<option value="Net 21">Net 21</option>
+	        		  	<option value="Net 25">Net 25</option>
+	          			<option value="Net 30">Net 30</option>
+			          	<option value="Net 45">Net 45</option>
+	    		      	<option value="Net 60">Net 60</option>
+	        		  </select>
+			        </p>
+	    		    <p>
+	        		  <label for="otMarkup">&emsp;OT Markup: </label>
+			          <input id="otMarkup" type="number" step="0.01" placeholder="25.0" min="0">
+	    		    </p>
+	        		<p>
+			          <label for="weeklyOTHours">&emsp;Weekly OT Hours: </label>
+	    		      <input id="weeklyOTHours" type="number" placeholder="1" min="0">
+	        		</p>
+			        <p>
+	    		      <label for="otCap">&emsp;OT Cap: </label>
+	        		  <input id="otCap" type="number" placeholder="40" min="0">
+			        </p>
+	    		    <p>
+	        		  <label for="otOverCap">&emsp;OT Hours over Cap: </label>
+			          <input id="otOverCap" type="number" placeholder="2" min="0">
+	    		    </p>
+	    		  </div>
+	    		  <div class="column">
+	        		<p>
+			          <label for="partyStaffing">&emsp;3rd Party Staffing: </label>
+	    		      <select id="partyStaffing">
+			      	  	<option value="no">No</option>
+	    		  	  	<option value="yes">Yes</option>
+	      			  </select>
+			      	</p>
+	    		  	<p>
+	        		  <label for="partyMarkup">&emsp;3rd Party Mark-up: </label>
+			          <input id="partyMarkup" type="number" step="0.01" placeholder="3" min="0">
+	    		  	</p>
+	      			<p>
+			          <label for="partyWeeklyHours">&emsp;Weekly 3rd Party Hours: </label>
+	    		      <input id="partyWeeklyHours" type="number" placeholder="6" min="0">
+	      			</p>
+			      	<p>
+	    		  	  <label for="vms">&emsp;VMS: </label>
+	      			  <input id="vms" type="text">
+			      	</p>
+	    		  	<section>
+	      			  <h5>&emsp;&emsp; Weekly Costs</h5>
+			          <p>
+	    		  	    <label for="transportation">&emsp;&emsp;&emsp;Transportation: </label>
+			      	    <input id="transportation" type="number" step="0.01" placeholder="14" min="0">
+	    		  	  </p>
+	      			  <p>
+			      	    <label for="unbillables">&emsp;&emsp;&emsp;Unbillables: </label>
+	    		  	    <input id="unbillables" type="number" step="0.01" placeholder="15" min="0">
+	      			  </p>
+			      	  <p>
+	    		  	    <label for="billBack">&emsp;&emsp;&emsp;Bill Back: </label>
+	      			    <input id="billBack" type="number" step="0.01" placeholder="16" min="0">
+			      	  </p>
+	    		  	  <p>
+	      			    <label for="branchOnsite">&emsp;&emsp;&emsp;Branch Onsite: </label>
+	      	    		<input id="branchOnsite" type="number" step="0.01" placeholder="17" min="0">
+			      	  </p>
+	    		  	  <p>
+	      			    <label for="rebate">&emsp;&emsp;&emsp;Rebate: </label>
+	      	    		<input id="rebate" type="number" step="0.01" placeholder="18" min="0">
+			      	  </p>
+	    		  	</section>
+	      			<section>
+			      	  <h5>&emsp;&emsp; Cost Per EE</h5>
+	    		      <p>
+	      			    <label for="backgroundCheck">&emsp;&emsp;&emsp;Background Check: </label>
+	      	    		<select id="backgroundCheck">
+			      	      <option value="0">None $0</option>
+	    		  	      <option value="2.90">Basic Package=$2.90</option>
+	      			      <option value="8.50">Standard Package=$8.50</option>
+	      	    		  <option value="13.50">Pro Package=$13.50</option>
+			      	      <option value="0">Bill Back</option>
+	    		  	    </select>
+	      			  </p>
+			      	  <p>
+	    		  	    <label for="drugScreen">&emsp;&emsp;&emsp;Drug Screen: </label>
+	      			    <select id="drugScreen">
+	      	    		  <option value="0">None</option>
+			      	      <option value="3.66">5 Panel - $3.66</option>
+	    		  	      <option value="5.33">10 Panel - $5.33</option>
+	      			      <option value="5.64">12 Panel - $5.64</option>
+	      	    		  <option value="50">Clinic - Urine - $50</option>
+			      	      <option value="25">Quest - Urine - $25</option>
+	    		  	      <option value="0">Bill Back</option>
+	      			    </select>
+			      	  </p>
+	    		  	  <p>
+	      			    <label for="ppe">&emsp;&emsp;&emsp;PPE: </label>
+			      	    <input id="ppe" type="number" step="0.01" placeholder="16" min="0">
+	    		  	  </p>
+	      			  <p>
+	      	    		<label for="uniforms">&emsp;&emsp;&emsp;Uniforms: </label>
+			      	    <input id="uniforms" type="number" step="0.01" placeholder="17" min="0">
+	    		  	  </p>
+	      			  <p>
+	      	    		<label for="billBack2">&emsp;&emsp;&emsp;Bill Back: </label>
+			      	    <input id="billBack2" type="number" step="0.01" placeholder="18.00" min="0">
+	    		  	  </p>
+	      			</section>
+			      	<section>
+	    		  	  <h5>&emsp;&emsp; Upfront</h5>
+	      			  <p>
+			      	    <label for="timeclock">&emsp;&emsp;&emsp;Timeclocks: </label>
+	    		  	    <input id="timeclock" type="number" placeholder="16" min="0">
+	      			  </p>
+			      	  <p>
+	    		  	    <label for="salesCycle">&emsp;&emsp;&emsp;Sales Cycle: </label>
+	      			    <input id="salesCycle" type="number" step="0.01" placeholder="17.00" min="0">
+			      	  </p>
+	    		  	  <p>
+	      			    <label for="implementation">&emsp;&emsp;&emsp;Implementation: </label>
+	      	    		<input id="implementation" type="number" step="0.01" placeholder="18.00" min="0">
+			      	  </p>
+	    		  	</section>
+	    		  </div>
+	    		</div>
 		  </div>
       <div class="financeApproval">
       	<h3>FINANCE Approvals</h3>
@@ -298,5 +299,22 @@
       <p><a href = "https://forms.gle/gSAHCv1bvXeNL21t8" style="color:mediumpurple;">Submit a ticket</a></p>
       <p><a href="PayrollSubmission.html" style="color:mediumpurple;">Ignore this link</a></p>
       <br>
+
+      <script>
+		    	var coll = document.getElementsByClassName("collapsible");
+					var i;
+
+					for (i = 0; i < coll.length; i++) {
+					  coll[i].addEventListener("click", function() {
+					    this.classList.toggle("active");
+					    var content = this.nextElementSibling;
+					    if (content.style.display === "block") {
+					      content.style.display = "none";
+					    } else {
+					      content.style.display = "block";
+					    }
+					  });
+					}
+				</script>
     </body>
   <html>
